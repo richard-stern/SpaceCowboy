@@ -47,7 +47,7 @@ void GameState::Update(StateMachine* pStateMachine, float fDeltaTime)
 	}
 
 	//Pause State
-	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_ESCAPE))
+	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_ESCAPE) || Input::GetSingleton()->IsKeyDown(GLFW_KEY_P))
 	{
 		pStateMachine->ChangeState(ESTATE_PAUSED);
 	}
