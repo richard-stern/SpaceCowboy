@@ -11,7 +11,7 @@ struct Circle
 	{
 		centre.x = 0.0f;
 		centre.y = 0.0f;
-		radius = 0.0f;
+		radius = 0.0f; 
 	}
 
 	Circle(float x, float y, float radius)
