@@ -7,18 +7,18 @@
 
 GameState::GameState()
 {
-	Enter();
-
 	GUI::CreateSingleton();
-
 	m_v2PlayerOrigin.x = 400;
 	m_v2PlayerOrigin.y = 500;
 }
 
 GameState::~GameState()
 {
-	delete m_pPlayer;
-	delete m_pLevel;
+	if (m_pPlayer)
+		delete m_pPlayer;
+
+	if (m_pLevel)
+		delete m_pLevel;
 	GUI::DestroySingleton();
 }
 
@@ -33,7 +33,7 @@ void GameState::Update(StateMachine* pStateMachine, float fDeltaTime)
 	m_pLevel->Update(fDeltaTime);
 
 	m_pPlayer->Update(fDeltaTime);
-
+	
 	if (m_pPlayer->GetHealth() == 0)
 	{
 		pStateMachine->ChangeState(ESTATE_GAMEOVER);
@@ -59,5 +59,7 @@ void GameState::Draw(SpriteBatch* pSpriteBatch)
 void GameState::Exit()
 {
 	delete m_pPlayer;
+	m_pPlayer = nullptr;
 	delete m_pLevel;
+	m_pLevel = nullptr;
 }
