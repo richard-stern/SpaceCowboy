@@ -11,6 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Boss Bullet.cpp" />
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossBulletManager.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -24,7 +27,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="PauseState.cpp" />
-    <ClCompile Include="PickupHealth.cpp" />
     <ClCompile Include="PickupObject.cpp" />
     <ClCompile Include="PickupShield.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -35,6 +37,9 @@
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Boss bullet.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossBulletManager.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Engine.h" />
@@ -48,7 +53,6 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="PauseState.h" />
-    <ClInclude Include="PickupHealth.h" />
     <ClInclude Include="PickupObject.h" />
     <ClInclude Include="PickupShield.h" />
     <ClInclude Include="Player.h" />

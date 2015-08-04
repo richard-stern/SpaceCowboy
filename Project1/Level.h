@@ -8,6 +8,7 @@ using namespace std;
 class Rock;
 class Star;
 class SpriteBatch;
+class Texture;
 
 //This class needs to create the level and all the obstacles, environment, enemies, etc.
 //It doesn't create the player.

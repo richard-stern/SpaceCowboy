@@ -1,40 +1,46 @@
-#include "stdlib.h"
 #include "TextureManager.h"
 #include "Texture.h"
+#include <string>
 
 TextureManager* TextureManager::m_pSingleton = nullptr;
 
 TextureManager::TextureManager()
 {
+	m_pTextureList = new std::map<std::string, Texture*>();
 }
 
 TextureManager::~TextureManager()
 {
-	for (auto iter = m_textureList.begin(); iter != m_textureList.end(); iter++)
+	auto it = m_pTextureList->begin();
+ 
+	while(it != m_pTextureList->end())
 	{
-		delete iter->second;
+	  delete it->second;
+	  it++;
 	}
+ 
+	m_pTextureList->clear();
+	delete m_pTextureList;
 }
 
 Texture* TextureManager::LoadTexture(char* szFileName)
 {
-	if (m_textureList.find(szFileName) != m_textureList.end())
+	std::string filename = "./Images/";
+	filename += szFileName;
+
+	//strcat_s(filename, 100, "./Images/");
+	//strcat_s(filename, 100, szFileName);
+
+	auto it = m_pTextureList->find(filename);
+
+	if(it == m_pTextureList->end())
 	{
-		// texture is loaded, return existing pointer
-		return m_textureList[szFileName];
+		Texture* pNewTexture = new Texture(filename.c_str());
+		m_pTextureList->insert( std::pair<std::string, Texture*>(filename, pNewTexture) );
+		return pNewTexture;
 	}
 	else
 	{
-		// texture is not loaded, load the texture
-
-		// construct filename
-		char filename[100] = "./Images/";
-		strcat_s(filename, szFileName);
-		//strcat(filename, ".png");
-
-		// add texture to texture list and return
-		m_textureList[szFileName] = new Texture(filename);
-		return m_textureList[szFileName];
+	   return it->second;
 	}
-	return nullptr;
 }

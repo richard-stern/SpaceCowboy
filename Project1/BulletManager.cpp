@@ -15,7 +15,7 @@ BulletManager::~BulletManager()
 {
 	for (int i = 0; i < 100; i++)
 	{
-			delete bulletList[i];
+		delete bulletList[i];
 	}
 }
 
@@ -48,6 +48,7 @@ void BulletManager::ShootBullet(Vector2 v2StartPos, Vector2 v2Dir)
 		if (!bulletList[i]->GetActive())
 		{
 			bulletList[i]->Shoot(v2StartPos, v2Dir);
+			break;
 		}
 	}
 }

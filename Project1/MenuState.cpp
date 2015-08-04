@@ -75,6 +75,8 @@ MenuState::~MenuState()
 
 void MenuState::Enter()
 {
+	m_Playing = false;
+	m_startGame = false;
 }
 
 void MenuState::Update(StateMachine* pStateMachine, float fDeltaTime)
