@@ -7,16 +7,18 @@
 
 GameState::GameState()
 {
-	Enter();
-
 	GUI::CreateSingleton();
-
 	m_v2PlayerOrigin.x = 400;
 	m_v2PlayerOrigin.y = 500;
 }
 
 GameState::~GameState()
 {
+	if (m_pPlayer)
+		delete m_pPlayer;
+
+	if (m_pLevel)
+		delete m_pLevel;
 	GUI::DestroySingleton();
 }
 
@@ -70,5 +72,7 @@ void GameState::Draw(SpriteBatch* pSpriteBatch)
 void GameState::Exit()
 {
 	delete m_pPlayer;
+	m_pPlayer = nullptr;
 	delete m_pLevel;
+	m_pLevel = nullptr;
 }
