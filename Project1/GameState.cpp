@@ -32,9 +32,22 @@ void GameState::Update(StateMachine* pStateMachine, float fDeltaTime)
 
 	m_pPlayer->Update(fDeltaTime);
 
+	//Player Death
 	if (m_pPlayer->GetHealth() == 0)
 	{
 		pStateMachine->ChangeState(ESTATE_GAMEOVER);
+	}
+
+	//Menu return
+	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_F1))
+	{
+		pStateMachine->ChangeState(ESTATE_MENU);
+	}
+
+	//Pause State
+	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_ESCAPE))
+	{
+		pStateMachine->ChangeState(ESTATE_PAUSED);
 	}
 }
 

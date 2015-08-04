@@ -3,7 +3,7 @@
 #include "BaseState.h"
 #include "MenuState.h"
 #include "GameState.h"
-//#include "PauseState.h"
+#include "PauseState.h"
 #include "GameOverState.h"
 
 StateMachine::StateMachine()
@@ -14,7 +14,7 @@ StateMachine::StateMachine()
 	//State
 	StatesArray[ESTATE_MENU] = new MenuState();
 	StatesArray[ESTATE_GAME] = new GameState();
-	//StatesArray[ESTATE_PAUSED] = new PauseState();
+	StatesArray[ESTATE_PAUSED] = new PauseState();
 	StatesArray[ESTATE_GAMEOVER] = new GameOverState();
 }
 

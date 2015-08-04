@@ -81,6 +81,9 @@
     <ClCompile Include="PickupShield.cpp">
       <Filter>GameObjects\PowerUps</Filter>
     </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>StateMachine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="PickupShield.h">
       <Filter>GameObjects\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.h">
+      <Filter>StateMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

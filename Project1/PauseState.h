@@ -1,14 +1,13 @@
 #pragma once
 #include "BaseState.h"
 
-//Delete when done
 class Font;
 
-class MenuState : public BaseState
+class PauseState : public BaseState
 {
 public:
-	MenuState();
-	virtual ~MenuState();
+	PauseState();
+	virtual ~PauseState();
 
 	void Enter();
 	void Update(StateMachine* pStateMachine, float fDeltaTime);
@@ -17,5 +16,5 @@ public:
 
 private:
 	Font *g_font1;
+	Font *g_fontTimer;
 };
-
