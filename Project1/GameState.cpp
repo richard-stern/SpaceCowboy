@@ -14,11 +14,6 @@ GameState::GameState()
 
 GameState::~GameState()
 {
-	if (m_pPlayer)
-		delete m_pPlayer;
-
-	if (m_pLevel)
-		delete m_pLevel;
 	GUI::DestroySingleton();
 }
 

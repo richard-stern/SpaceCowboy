@@ -16,10 +16,13 @@ StateMachine::StateMachine()
 	StatesArray[ESTATE_GAME] = new GameState();
 	StatesArray[ESTATE_PAUSED] = new PauseState();
 	StatesArray[ESTATE_GAMEOVER] = new GameOverState();
+	
+	StatesArray[m_eCurrentState]->Enter();
 }
 
 StateMachine::~StateMachine()
 {
+	StatesArray[m_eCurrentState]->Exit();
 	for (int i = 0; i < ESTATE_COUNT; i++)
 	{
 		delete StatesArray[i];

@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "Engine.h"
 #include "Application.h"
+#include "TextureManager.h"
 #include "GUI.h"
 #include "Game.h"
 #include "Texture.h"
@@ -14,7 +15,8 @@ GameOverState::GameOverState()
 	m_font1 = new Font("./Fonts/ocr_a_100px.fnt");
 	m_font2 = new Font("./Fonts/ocr_a_36px.fnt");
 
-	m_background = new Texture("./Images/spaceship_explosion.png");
+	m_background = TextureManager::GetSingleton()->LoadTexture("spaceship_explosion.png");
+	//m_background = new Texture("./Images/spaceship_explosion.png");
 }
 
 GameOverState::~GameOverState()
@@ -22,7 +24,7 @@ GameOverState::~GameOverState()
 	delete m_font1;
 	delete m_font2;
 
-	delete m_background;
+	//delete m_background;
 }
 
 void GameOverState::Enter()
