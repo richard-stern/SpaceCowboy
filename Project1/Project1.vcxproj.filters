@@ -81,11 +81,17 @@
     <ClCompile Include="PickupShield.cpp">
       <Filter>GameObjects\PowerUps</Filter>
     </ClCompile>
-    <ClCompile Include="PickupHealth.cpp">
-      <Filter>GameObjects\PowerUps</Filter>
+    <ClCompile Include="Boss.cpp">
+      <Filter>GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="PauseState.cpp">
       <Filter>StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss Bullet.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBulletManager.cpp">
+      <Filter>Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -155,11 +161,17 @@
     <ClInclude Include="PickupShield.h">
       <Filter>GameObjects\PowerUps</Filter>
     </ClInclude>
-    <ClInclude Include="PickupHealth.h">
-      <Filter>GameObjects\PowerUps</Filter>
+    <ClInclude Include="Boss.h">
+      <Filter>GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="PauseState.h">
       <Filter>StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss bullet.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBulletManager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
