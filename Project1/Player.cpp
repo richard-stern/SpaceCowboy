@@ -33,7 +33,8 @@ Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : 
 	m_RotationAcc = 0;
 
 	m_Score = 0;
-	m_Health = 100;
+	m_nMaxHealth = 100;
+	m_Health = m_nMaxHealth;
 	m_ShieldMax = 100;
 	m_Shield = m_ShieldMax;
 
@@ -179,6 +180,11 @@ void Player::Draw(SpriteBatch* pSpriteBatch)
 int Player::GetPlayerHealth()
 {
 	return (int)m_Health;
+}
+
+float Player::GetPlayerHealthMax()
+{
+	return m_nMaxHealth;
 }
 
 int Player::GetPlayerHealthScaled()
