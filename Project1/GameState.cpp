@@ -60,9 +60,15 @@ void GameState::Draw(SpriteBatch* pSpriteBatch)
 	pSpriteBatch->SetCameraPos(playerPos.x, playerPos.y);
 
 	//GUI Draw and parameters
-	float myVar = (float)m_pPlayer->GetPlayerHealthScaled();
 	
-	GUI::GetSingleton()->Draw(pSpriteBatch, myVar);
+	//param store hp
+	float myVar = (float)m_pPlayer->GetPlayerHealthScaled();
+
+	//param store shield
+	float myVar2 = (float)m_pPlayer->GetPlayerShieldScaled();
+
+
+	GUI::GetSingleton()->Draw(pSpriteBatch, myVar,myVar2);
 }
 
 void GameState::Exit()
