@@ -1,6 +1,21 @@
 #include "MenuState.h"
 #include "StateMachine.h"
 #include "SpriteBatch.h"
+<<<<<<< HEAD
+
+//-------------------------------------------------------------------
+// Delete
+#include "Font.h"
+//-------------------------------------------------------------------
+
+MenuState::MenuState()
+{
+	//-------------------------------------------------------------------
+	//Delete when finished
+	// Create the font for use with draw string
+	g_font1 = new Font("./Fonts/hobo_22px.fnt");
+	//-------------------------------------------------------------------
+=======
 #include "TextureManager.h"
 #include <iostream>
 #include <string>
@@ -53,10 +68,15 @@ MenuState::MenuState()
 	m_TimerMax = 0.03333f;
 	m_Timer = m_TimerMax;
 	m_startGame = false;
+>>>>>>> c67f3deb56b373012d4cf6fd6f984cccfa7293cf
 }
 
 MenuState::~MenuState()
 {
+	//-------------------------------------------------------------------
+	//Delete afterwards
+	delete g_font1;
+	//-------------------------------------------------------------------
 }
 
 void MenuState::Enter()
@@ -116,6 +136,21 @@ void MenuState::Update(StateMachine* pStateMachine, float fDeltaTime)
 
 void MenuState::Draw(SpriteBatch* pSpriteBatch)
 {
+<<<<<<< HEAD
+	//Differentiate between states - To be deleted in final release
+	//-------------------------------------------------------------------
+	// Draw the menu
+	pSpriteBatch->DrawString(g_font1, "Menu State", 10, 10);
+
+	//Fade colour
+	pSpriteBatch->SetRenderColor(255, 255, 255, 255 * (unsigned char)61.0f);
+	pSpriteBatch->DrawString(g_font1, "Press F1 to return to menu", 10, 40);
+	pSpriteBatch->DrawString(g_font1, "Press Space to play Space Cowboy!", 10, 70);
+	pSpriteBatch->DrawString(g_font1, "Press Esc or 'P' to view Pause game or view controls", 10, 100);
+	//Reset Colour
+	pSpriteBatch->SetRenderColor(255, 255, 255, 255);
+	//-------------------------------------------------------------------
+=======
 	pSpriteBatch->DrawSprite(m_pBackgroundLayer2, (float)m_WindowWidth / 2, (float)m_WindowHeight / 2);
 	//SpaceShip HERE
 	pSpriteBatch->SetRenderColor(0x0000FFFF);
@@ -128,6 +163,7 @@ void MenuState::Draw(SpriteBatch* pSpriteBatch)
 
 	pSpriteBatch->DrawSprite(m_pDogeTexture, m_DogePos.x, m_DogePos.y);
 	
+>>>>>>> c67f3deb56b373012d4cf6fd6f984cccfa7293cf
 }
 
 void MenuState::Exit()

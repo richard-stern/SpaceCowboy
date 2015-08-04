@@ -19,6 +19,10 @@ Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : 
 {
 	m_pBulletManager = new BulletManager();
 
+	//---------------------------- DEBUG -----------------------------------
+	//m_pPlayerTexture = new Texture("./Images/player.png");
+	//----------------------------------------------------------------------
+
 	m_pPlayerTexture = TextureManager::GetSingleton()->LoadTexture(szTexturePath);
 
 	SetPosition(v2Pos);
@@ -47,7 +51,6 @@ Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : 
 
 Player::~Player()
 {
-	delete m_pBulletManager;
 }
 
 void Player::Update(float fDeltaTime)

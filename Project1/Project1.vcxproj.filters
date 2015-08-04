@@ -81,8 +81,13 @@
     <ClCompile Include="PickupShield.cpp">
       <Filter>GameObjects\PowerUps</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="PauseState.cpp">
+      <Filter>StateMachine</Filter>
+=======
     <ClCompile Include="PickupHealth.cpp">
       <Filter>GameObjects\PowerUps</Filter>
+>>>>>>> c67f3deb56b373012d4cf6fd6f984cccfa7293cf
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,8 +157,13 @@
     <ClInclude Include="PickupShield.h">
       <Filter>GameObjects\PowerUps</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="PauseState.h">
+      <Filter>StateMachine</Filter>
+=======
     <ClInclude Include="PickupHealth.h">
       <Filter>GameObjects\PowerUps</Filter>
+>>>>>>> c67f3deb56b373012d4cf6fd6f984cccfa7293cf
     </ClInclude>
   </ItemGroup>
 </Project>

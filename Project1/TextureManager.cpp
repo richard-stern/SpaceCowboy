@@ -33,8 +33,8 @@ Texture* TextureManager::LoadTexture(char* szFileName)
 		//strcat(filename, ".png");
 
 		// add texture to texture list and return
-		m_textureList[filename] = new Texture(filename);
-		return m_textureList[filename];
+		m_textureList[szFileName] = new Texture(filename);
+		return m_textureList[szFileName];
 	}
 	return nullptr;
 }
