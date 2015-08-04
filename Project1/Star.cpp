@@ -4,6 +4,9 @@ Star::Star(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : Game
 {
 	SetActive(true);
 	SetVisible(true);
+
+	m_rAABB.min = v2Pos;
+	m_rAABB.max = v2Pos + Vector2(8, 8);
 }
 
 Star::~Star()

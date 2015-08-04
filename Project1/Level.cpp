@@ -23,7 +23,18 @@ Level::Level()
 	{
 		m_v2EachPos.x = (float)(rand() % windowWidth);
 		m_v2EachPos.y = (float)(rand() % windowHeight);
-		starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+
+		if (i / 5)
+		{
+			starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			continue;
+		}
+		else
+		{
+			starStorage[i] = new Star("rock_small.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			continue;
+		}
+		
 	}
 	
 	//------------------------------------------------------------------------------------------
