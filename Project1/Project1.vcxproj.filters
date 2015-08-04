@@ -84,6 +84,9 @@
     <ClCompile Include="Boss.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>StateMachine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Boss.h">
       <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.h">
+      <Filter>StateMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
