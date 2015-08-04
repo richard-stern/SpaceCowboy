@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 
 	srand((unsigned int)time(nullptr));
 
-	Engine::CreateEngine(1920, 1080, false, "Game1");
+	Engine::CreateEngine(1280, 720, false, "Space Cowboy!");
 	
 	Game* pGame = (Game*)Engine::GetSingleton()->GetApplication();
 	pGame->RunGame();

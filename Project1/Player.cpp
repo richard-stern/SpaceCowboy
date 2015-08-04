@@ -17,14 +17,13 @@
 
 Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : GameObject( szTexturePath, v2Pos, eCollision )
 {
+	//Make Bullet Manager
 	m_pBulletManager = new BulletManager();
 
-	//---------------------------- DEBUG -----------------------------------
-	//m_pPlayerTexture = new Texture("./Images/player.png");
-	//----------------------------------------------------------------------
-
+	//Load Player Texture
 	m_pPlayerTexture = TextureManager::GetSingleton()->LoadTexture(szTexturePath);
 
+	//Set Pos and Size
 	SetPosition(v2Pos);
 	m_Size = Vector2(66, 51);
 
@@ -34,7 +33,7 @@ Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : 
 
 	m_Score = 0;
 	m_nMaxHealth = 100;
-	m_Health = m_nMaxHealth;
+	m_nHealth = m_nMaxHealth;
 	m_ShieldMax = 100;
 	m_Shield = m_ShieldMax;
 
@@ -70,7 +69,7 @@ void Player::Update(float fDeltaTime)
 		if(m_Shield >= 0)
 			m_Shield -= 20 + rand() % 20;
 		else
-			m_Health -= 20 + rand() % 20;
+			m_nHealth -= 20 + rand() % 20;
 	}
 
 	//ReSet ACC
@@ -177,9 +176,9 @@ void Player::Draw(SpriteBatch* pSpriteBatch)
 
 }
 
-int Player::GetPlayerHealth()
+float Player::GetPlayerHealth()
 {
-	return (int)m_Health;
+	return m_nHealth;
 }
 
 float Player::GetPlayerHealthMax()
@@ -187,12 +186,12 @@ float Player::GetPlayerHealthMax()
 	return m_nMaxHealth;
 }
 
-int Player::GetPlayerHealthScaled()
+float Player::GetPlayerHealthScaled()
 {
-	float HealthFraction = m_Health / 100;
+	float HealthFraction = m_nHealth / 100;
 	HealthFraction *= 233;
 
-	return (int)HealthFraction;
+	return HealthFraction;
 }
 
 float Player::GetPlayerShield()

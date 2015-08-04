@@ -17,9 +17,9 @@ public:
 	void Update(float fDeltaTime);
 	void Draw(SpriteBatch* pSpriteBatch);
 
-	int GetPlayerHealth();
+	float GetPlayerHealth();
 	float GetPlayerHealthMax();
-	int GetPlayerHealthScaled();
+	float GetPlayerHealthScaled();
 
 	float GetPlayerShield();
 	float GetPlayerShieldMax();
@@ -49,7 +49,6 @@ private:
 
 	//UI
 	int m_Score;
-	float m_Health;
 	float m_Shield;
 	float m_ShieldMax;
 
