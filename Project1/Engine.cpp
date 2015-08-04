@@ -16,7 +16,7 @@ Engine::~Engine()
 void Engine::CreateEngine(unsigned int width, unsigned int height, bool fullscreen, char* windowName)
 { 
 	m_pSingleton = new Engine(); 
-	Game* pGame = new Game(1232, 878, false, "Game");
+	Game* pGame = new Game(width, height, false, "Game");
 
 	m_pSingleton->m_pApplication = pGame;
 	pGame->Initialise();

@@ -96,8 +96,8 @@ void MenuState::Update(StateMachine* pStateMachine, float fDeltaTime)
 	int MouseY = Input::GetSingleton()->GetMouseY();
 	if (Input::GetSingleton()->IsMouseButtonDown(0))
 	{
-		if (MouseX > m_BtnPos[0].x && MouseX < m_BtnPos[0].x + 100 &&
-			MouseY > m_BtnPos[0].y && MouseY < m_BtnPos[0].y + 50)
+		if (MouseX > m_BtnPos[0].x && MouseX < m_BtnPos[0].x + 400 &&
+			MouseY > m_BtnPos[0].y && MouseY < m_BtnPos[0].y + 100)
 		{
 			m_Playing = true;
 		}
