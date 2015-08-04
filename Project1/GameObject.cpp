@@ -19,6 +19,9 @@ GameObject::GameObject(char* szTexturePath, Vector2 v2Pos, ECollisionType eColli
 	m_v2Pos = v2Pos;
 	m_eCollisionType = eCollision;
 	m_v2Velocity = Vector2(0.0f, 0.0f);
+	m_fSpeed = 0.0f;
+	m_nHealth = 100.0f;
+	m_nMaxHealth = 100.0f;
 }
 
 GameObject::~GameObject()
