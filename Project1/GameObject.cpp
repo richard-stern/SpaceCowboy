@@ -18,6 +18,7 @@ GameObject::GameObject(char* szTexturePath, Vector2 v2Pos, ECollisionType eColli
 	m_pTexture = TextureManager::GetSingleton()->LoadTexture(szTexturePath);
 	m_v2Pos = v2Pos;
 	m_eCollisionType = eCollision;
+	m_v2Velocity = Vector2(0.0f, 0.0f);
 }
 
 GameObject::~GameObject()

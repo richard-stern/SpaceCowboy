@@ -4,6 +4,7 @@
 #include "TextureManager.h"
 #include "CollisionManager.h"
 #include "GUI.h"
+#include "Engine.h"
 
 GameState::GameState()
 {
@@ -36,7 +37,7 @@ void GameState::Update(StateMachine* pStateMachine, float fDeltaTime)
 	}
 
 	//Menu return
-	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_F1))
+	if (Input::GetSingleton()->WasKeyPressed(GLFW_KEY_F1))
 	{
 		pStateMachine->ChangeState(ESTATE_MENU);
 	}
@@ -70,4 +71,6 @@ void GameState::Exit()
 	m_pPlayer = nullptr;
 	delete m_pLevel;
 	m_pLevel = nullptr;
+
+	Engine::GetSingleton()->GetSpriteBatch()->SetCameraPos(0, 0);
 }
