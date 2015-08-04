@@ -9,12 +9,13 @@ public:
 	static void CreateSingleton()	{ m_pSingleton = new GUI(); }
 	static void DestroySingleton()	{ delete m_pSingleton; }
 
-	void Draw(SpriteBatch* pSpriteBatch, float health);
+	void Draw(SpriteBatch* pSpriteBatch, float health,float shield);
 
 	void DisplayScore();
 	void AddScore(int amount);
 	int GetScore();
 	void SetHealth(float health);
+	void SetShield(float shield);
 
 	GUI();
 private:
@@ -28,6 +29,7 @@ private:
 
 	int m_pScore;
 	int m_pHealth;
+	int m_pShield;
 	static GUI * m_pSingleton;
 	Texture *m_pHpImage;
 	Texture *m_pbar;
