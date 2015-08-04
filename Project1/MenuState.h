@@ -19,10 +19,6 @@ public:
 	void Exit();
 
 private:
-<<<<<<< HEAD
-	Font *g_font1;
-=======
-
 	int m_WindowWidth;
 	int m_WindowHeight;
 
@@ -47,7 +43,5 @@ private:
 	Vector2 m_GunPos;
 
 	Vector2 m_DogePos;
-
->>>>>>> c67f3deb56b373012d4cf6fd6f984cccfa7293cf
 };
 

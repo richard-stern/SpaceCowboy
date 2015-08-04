@@ -5,3 +5,4 @@ AIEProjects.opensdf
 *.exe
 *.ilk
 *.pdb
+AIE_GL/bin/AIE_GL_d.lib
