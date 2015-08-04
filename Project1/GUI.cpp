@@ -27,7 +27,7 @@ GUI::GUI()
 	m_pSbar = TextureManager::GetSingleton()->LoadTexture("shield bar.png");
 
 	//font
-	m_font = new Font("ocr_a_36px.fnt");
+	m_font = new Font("./Fonts/ocr_a_36px.fnt");
 }
 
 GUI::~GUI()
