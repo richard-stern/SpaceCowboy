@@ -10,7 +10,7 @@ class PickupObject :
 {
 public:
 	PickupObject(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision);
-	~PickupObject();
+	virtual ~PickupObject();
 
 	void Update(float fDeltaTime);
 

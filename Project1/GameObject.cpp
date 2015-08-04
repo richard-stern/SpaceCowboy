@@ -84,6 +84,11 @@ int GameObject::GetHealth()
 	return m_nHealth;
 }
 
+int GameObject::GetMaxHealth()
+{
+	return m_nMaxHealth;
+}
+
 void GameObject::SetActive(bool bActive)
 {
 	m_bActive = bActive;

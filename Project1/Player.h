@@ -18,6 +18,7 @@ public:
 	void Draw(SpriteBatch* pSpriteBatch);
 
 	int GetPlayerHealth();
+	float GetPlayerHealthMax();
 	int GetPlayerHealthScaled();
 
 	float GetPlayerShield();
