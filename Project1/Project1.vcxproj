@@ -11,7 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Boss Bullet.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossBulletManager.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -35,7 +37,9 @@
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Boss bullet.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossBulletManager.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Engine.h" />

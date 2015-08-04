@@ -16,11 +16,11 @@ Boss::Boss(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : Game
 		m_pBulletManager = new BulletManager();
 
 		//get the cat texture
-		m_pBoss =0;
+		m_pBoss = TextureManager::GetSingleton()->LoadTexture("CAT BOSS.png");
 
 		//set pos
 		SetPosition(v2Pos);
-		m_Size = Vector2(66, 51);
+		m_Size = Vector2(209, 298);
 		
 		//ini the hp
 		m_Health = 10000;
@@ -34,7 +34,7 @@ Boss::Boss(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : Game
 
 Boss::~Boss()
 {
-
+	delete m_pBulletManager;
 }
 
 void Boss::Update(float fDeltaTime)
@@ -48,12 +48,12 @@ void Boss::Update(float fDeltaTime)
 
 	m_pCollider = nullptr;
 
-	//col manage
-	if (CollisionManager::GetSingleton()->IsColliding(this, &m_pCollider))
-	{
-		SetVelocity(m_pCollider->GetVelocity());
-			m_Health -= 20 + rand() % 20;
-	}
+	//col manage, boss ignores unit collusion so remove?
+	//if (CollisionManager::GetSingleton()->IsColliding(this, &m_pCollider))
+	//{
+	//	SetVelocity(m_pCollider->GetVelocity());
+	//		m_Health -= 20 + rand() % 20;
+	//}
 
 }
 

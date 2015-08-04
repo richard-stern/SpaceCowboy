@@ -87,6 +87,12 @@
     <ClCompile Include="PauseState.cpp">
       <Filter>StateMachine</Filter>
     </ClCompile>
+    <ClCompile Include="Boss Bullet.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBulletManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -160,6 +166,12 @@
     </ClInclude>
     <ClInclude Include="PauseState.h">
       <Filter>StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss bullet.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBulletManager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
