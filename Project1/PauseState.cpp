@@ -61,6 +61,9 @@ void PauseState::Draw(SpriteBatch* pSpriteBatch)
 	pSpriteBatch->DrawString(g_fontTimer, "Rotate Ship Clockwise        = D", CamX + (float)(windowWidth / 2.0f), CamY + (float)(windowHeight / 2.0f) - 250.0f);
 	pSpriteBatch->DrawString(g_fontTimer, "Reload                       = R", CamX + (float)(windowWidth / 2.0f), CamY + (float)(windowHeight / 2.0f) - 220.0f);
 	pSpriteBatch->DrawString(g_fontTimer, "Fire                         = Spacebar", CamX + (float)(windowWidth / 2.0f), CamY + (float)(windowHeight / 2.0f) - 190.0f);
+
+	//:::::::::TODO::::::::
+	//Anti Velocity
 /*	pSpriteBatch->DrawString(g_fontTimer, "Rotate Tank Left    = Z", CamX + (float)(windowWidth / 2.0f), CamY + (float)(windowHeight / 2.0f) - 160.0f);
 	pSpriteBatch->DrawString(g_fontTimer, "Rotate Tank Right   = C", CamX + (float)(windowWidth / 2.0f), CamY + (float)(windowHeight / 2.0f) - 130.0f);
 	pSpriteBatch->DrawString(g_fontTimer, "Rotate Cannon Left  = Q", CamX + (float)(windowWidth / 2.0f), CamY + (float)(windowHeight / 2.0f) - 100.0f);
