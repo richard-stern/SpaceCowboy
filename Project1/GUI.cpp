@@ -2,8 +2,7 @@
 #include "SpriteBatch.h"
 #include "Player.h"
 #include "TextureManager.h"
-#include "SpriteBatch.h"
-#include "Engine.h";
+#include "Engine.h"
 #include "Game.h"
 #include "Font.h"
 #include <string>

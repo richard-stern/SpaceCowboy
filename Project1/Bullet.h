@@ -13,5 +13,10 @@ public:
 	//Specify the bullets start point and direction to fly when it gets shot.
 	void Shoot(Vector2 v2StartPos, Vector2 v2Dir);
 
+private:
+	float minX;
+	float maxX;
+	float minY;
+	float maxY;
 };
 

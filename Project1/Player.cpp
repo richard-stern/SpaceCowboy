@@ -59,7 +59,7 @@ void Player::Update(float fDeltaTime)
 		m_WindowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight();
 	}
 
-	GUI::GetSingleton()->SetHealth(GetPlayerHealthScaled());
+	GUI::GetSingleton()->SetHealth((float)GetPlayerHealthScaled());
 	
 	m_pCollider = nullptr;
 	if (CollisionManager::GetSingleton()->IsColliding(this, &m_pCollider))
@@ -186,19 +186,4 @@ int Player::GetPlayerHealthScaled()
 	HealthFraction *= 233;
 
 	return (int)HealthFraction;
-}
-
-float Player::GetPlayerShield()
-{
-	return m_Sheild;
-}
-
-float Player::GetPlayerShieldMax()
-{
-	return m_ShieldMax;
-}
-
-void Player::SetPlayerShield(float newShield)
-{
-	m_Sheild = newShield;
 }

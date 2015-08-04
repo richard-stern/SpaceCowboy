@@ -16,7 +16,11 @@ Engine::~Engine()
 void Engine::CreateEngine(unsigned int width, unsigned int height, bool fullscreen, char* windowName)
 { 
 	m_pSingleton = new Engine(); 
-	m_pSingleton->m_pApplication = new Game(1232, 878, false, "Game");
+	Game* pGame = new Game(1232, 878, false, "Game");
+
+	m_pSingleton->m_pApplication = pGame;
+	pGame->Initialise();
+
 	m_pSingleton->m_pApplication->SetVSync(false);
 
 	m_pSingleton->m_pInput = Input::GetSingleton();

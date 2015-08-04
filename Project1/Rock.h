@@ -10,6 +10,10 @@ public:
 
 	void Update(float fDeltaTime);
 
+	float minX;
+	float maxX;
+	float minY;
+	float maxY;
 private:
 	void Initialise();
 };

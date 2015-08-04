@@ -10,7 +10,7 @@ class Game : public Application
 public:
 	// assets loaded in constructor
 	Game(unsigned int windowWidth, unsigned int windowHeight, bool fullscreen, const char *title);
-
+	void Initialise();
 	// assets destroyed in destructor
 	virtual ~Game();
 

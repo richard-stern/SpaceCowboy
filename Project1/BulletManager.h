@@ -21,6 +21,5 @@ public:
 
 private:
 	Bullet* bulletList[100];
-
 };
 

@@ -38,5 +38,7 @@ void StateMachine::Draw(SpriteBatch* pSpriteBatch)
 
 void StateMachine::ChangeState(EState eState)
 {
+	StatesArray[m_eCurrentState]->Exit();
 	m_eCurrentState = eState;
+	StatesArray[m_eCurrentState]->Enter();
 }
