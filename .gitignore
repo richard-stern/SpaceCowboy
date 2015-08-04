@@ -1,3 +1,7 @@
 CompilerJunk/
 AIEProjects.sdf
 AIEProjects.opensdf
+*.suo
+*.exe
+*.ilk
+*.pdb
