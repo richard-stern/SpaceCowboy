@@ -23,6 +23,6 @@ public:
 
 private:
 	GameObject* rockStorage[20];
-	GameObject* starStorage[20];
+	GameObject* starStorage[120];
 	Vector2 m_v2EachPos;
 };

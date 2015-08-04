@@ -7,8 +7,8 @@
 #include "Engine.h"
 #include "Application.h"
 
-#define ROCK_COUNT 0
-#define STAR_COUNT 20
+#define ROCK_COUNT 20
+#define STAR_COUNT 120
 Level::Level()
 {
 	unsigned int windowWidth = Engine::GetSingleton()->GetApplication()->GetWindowWidth();
@@ -16,16 +16,16 @@ Level::Level()
 	for (int i = 0; i < ROCK_COUNT; i++)
 	{
 		m_v2EachPos.x = (float)(rand() % windowWidth);
-		m_v2EachPos.x = (float)(rand() % windowHeight);
+		m_v2EachPos.y = (float)(rand() % windowHeight);
 		rockStorage[i] = new Rock("rock_large.png", m_v2EachPos, ECOLLISIONTYPE_CIRCLE_MIN);
 	}
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
 		m_v2EachPos.x = (float)(rand() % windowWidth);
-		m_v2EachPos.x = (float)(rand() % windowHeight);
+		m_v2EachPos.y = (float)(rand() % windowHeight);
 		starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
 	}
-
+	
 	//------------------------------------------------------------------------------------------
 	//To Do?
 	//Storage[i] = new PickupShield("shieldPickup.png", m_v2EachPos, ECOLLISIONTYPE_AABB);
@@ -59,14 +59,14 @@ void Level::Draw(SpriteBatch* pSpriteBatch)
 {
 	for (int i = 0; i < ROCK_COUNT; i++)
 	{
-		if (rockStorage[i]->GetVisible() && rockStorage[i]->GetActive())
+		//if (rockStorage[i]->GetVisible() && rockStorage[i]->GetActive())
 		{
 			rockStorage[i]->Draw(pSpriteBatch);
 		}
 	}
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
-		if (starStorage[i]->GetVisible() && starStorage[i]->GetActive())
+		//if (starStorage[i]->GetVisible() && starStorage[i]->GetActive())
 		{
 			starStorage[i]->Draw(pSpriteBatch);
 		}
