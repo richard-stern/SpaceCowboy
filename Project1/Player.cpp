@@ -111,7 +111,7 @@ void Player::Update(float fDeltaTime)
 		m_Acceleration.y = -GetVelocity().y / 100;
 	}
 	//SHOOT
-	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_SPACE))
+	if (Input::GetSingleton()->WasKeyPressed(GLFW_KEY_SPACE))
 	{
 		m_pBulletManager->ShootBullet(GetPosition(), GetFacing());
 	}
@@ -168,6 +168,7 @@ void Player::Update(float fDeltaTime)
 	SetVelocity(GetVelocity() + m_Acceleration * fDeltaTime);
 	SetPosition(GetPosition() + GetVelocity() * fDeltaTime);
 	this->m_pBulletManager->Update(fDeltaTime);
+
 }
 
 void Player::Draw(SpriteBatch* pSpriteBatch)
@@ -183,7 +184,7 @@ void Player::Draw(SpriteBatch* pSpriteBatch)
 		pSpriteBatch->DrawSprite(m_pPlayerTexture, GetPosition().x, GetPosition().y, m_Size.x + 10, m_Size.y + 10, m_Rotation);
 		pSpriteBatch->SetRenderColor(0xFFFFFFFF);
 	}
-
+	this->m_pBulletManager->Draw(pSpriteBatch);
 }
 
 float Player::GetPlayerHealth()
