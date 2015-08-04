@@ -7,7 +7,7 @@
 #include "Engine.h"
 #include "Application.h"
 
-#define ROCK_COUNT 0
+#define ROCK_COUNT 20
 #define STAR_COUNT 20
 Level::Level()
 {
@@ -37,6 +37,10 @@ Level::~Level()
 	for (int i = 0; i < ROCK_COUNT; i++)
 	{
 		delete rockStorage[i];
+		
+	}
+	for (int i = 0; i < STAR_COUNT; i++)
+	{
 		delete starStorage[i];
 	}
 }
