@@ -167,7 +167,7 @@ void Player::Update(float fDeltaTime)
 	m_Acceleration *= 100;
 	SetVelocity(GetVelocity() + m_Acceleration * fDeltaTime);
 	SetPosition(GetPosition() + GetVelocity() * fDeltaTime);
-
+	this->m_pBulletManager->Update(fDeltaTime);
 }
 
 void Player::Draw(SpriteBatch* pSpriteBatch)
