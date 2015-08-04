@@ -17,6 +17,8 @@ GameState::GameState()
 
 GameState::~GameState()
 {
+	delete m_pPlayer;
+	delete m_pLevel;
 	GUI::DestroySingleton();
 }
 

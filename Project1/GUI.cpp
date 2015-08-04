@@ -12,8 +12,7 @@ GUI* GUI::m_pSingleton = nullptr;
 GUI::GUI()
 {
 	//construct the GUI parts
-	m_pScore = 0;
-	m_pHealth = 0;
+
 	//health image
 	m_pHpImage = TextureManager::GetSingleton()->LoadTexture("hp bar neo.png");
 
@@ -32,25 +31,26 @@ GUI::GUI()
 
 GUI::~GUI()
 {
+	delete m_font;
 }
 
 void GUI::Draw(SpriteBatch* pSpriteBatch, float health)
 {
 	Engine::GetSingleton()->GetSpriteBatch()->GetViewRect(&minX, &minY, &maxX, &maxY);
-
+	
 	//draw the health UI
-	pSpriteBatch->DrawSprite(m_pHpImage, minX - 450.0f, minY - 399.0f, 293.0f, 14.0f);
+	pSpriteBatch->DrawSprite(m_pHpImage, minX + 170.0f, minY + 28.0f, 293.0f, 14.0f);
 
 	//Live hp updaterino + logic
 	SetHealth(health);
 	float myVar = (float)m_pHealth;
-	pSpriteBatch->DrawSprite(m_pbar, minX - 532.0f, minY - 400.0f, 226.0f, 10.0f, 0, 0); //change 4th value to change bar length
+	pSpriteBatch->DrawSprite(m_pbar, minX + 88.0f, minY + 27.0f, 226.0f, 10.0f, 0, 0); //change 4th value to change bar length
 
 	//draw the shield UI
-	pSpriteBatch->DrawSprite(m_pShieldImage, minX - 450.0f, minY - 370.0f, 293.0f, 14.0f);
+	pSpriteBatch->DrawSprite(m_pShieldImage, minX + 169.0f, minY + 58.0f, 293.0f, 14.0f);
 
 	//draw the Shield bar
-	pSpriteBatch->DrawSprite(m_pSbar, minX - 532.0f, minY - 370.0f, 99.0f, 10.0f, 0, 0);
+	pSpriteBatch->DrawSprite(m_pSbar, minX + 88.0f, minY + 58.0f, 1.0f, 10.0f, 0, 0);
 
 
 	//draw score
@@ -58,8 +58,8 @@ void GUI::Draw(SpriteBatch* pSpriteBatch, float health)
 	std::string s = std::to_string(tempvar);
 	char const *pchar = s.c_str();
 
-	pSpriteBatch->DrawString(m_font, "Score:", minX + 350.0f, minY - 408.0f, 0, 0);
-	pSpriteBatch->DrawString(m_font, pchar, minX + 470.0f, minY - 408.0f, 0, 0);
+	pSpriteBatch->DrawString(m_font, "Score:", 955.f, 15.f, 0, 0);
+	pSpriteBatch->DrawString(m_font, pchar, 1075.f, 15.f, 0, 0);
 }
 
 void GUI::SetHealth(float health)
