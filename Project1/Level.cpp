@@ -37,6 +37,10 @@ Level::~Level()
 	for (int i = 0; i < ROCK_COUNT; i++)
 	{
 		delete rockStorage[i];
+	}
+
+	for (int i = 0; i < STAR_COUNT; i++)
+	{
 		delete starStorage[i];
 	}
 }
