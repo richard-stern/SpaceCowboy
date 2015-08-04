@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 13.00
+# Visual Studio 2013
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AIE_GL", "AIE_GL\AIE_GL.vcxproj", "{73904F27-F81D-4632-BABD-8C6DFA7E646B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project1", "Project1\Project1.vcxproj", "{0CEC3182-C003-432E-9914-F91528FDD262}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73904F27-F81D-4632-BABD-8C6DFA7E646B} = {73904F27-F81D-4632-BABD-8C6DFA7E646B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73904F27-F81D-4632-BABD-8C6DFA7E646B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{73904F27-F81D-4632-BABD-8C6DFA7E646B}.Debug|Win32.Build.0 = Debug|Win32
+		{73904F27-F81D-4632-BABD-8C6DFA7E646B}.Release|Win32.ActiveCfg = Release|Win32
+		{73904F27-F81D-4632-BABD-8C6DFA7E646B}.Release|Win32.Build.0 = Release|Win32
+		{0CEC3182-C003-432E-9914-F91528FDD262}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0CEC3182-C003-432E-9914-F91528FDD262}.Debug|Win32.Build.0 = Debug|Win32
+		{0CEC3182-C003-432E-9914-F91528FDD262}.Release|Win32.ActiveCfg = Release|Win32
+		{0CEC3182-C003-432E-9914-F91528FDD262}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
