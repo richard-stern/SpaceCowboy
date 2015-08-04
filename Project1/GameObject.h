@@ -30,6 +30,7 @@ public:
 	
 	void SetHealth(int nHealth);
 	int GetHealth();
+	int GetMaxHealth();
 
 	void SetActive(bool bActive);
 	bool GetActive();

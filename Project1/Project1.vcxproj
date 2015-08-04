@@ -23,6 +23,7 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="PickupHealth.cpp" />
     <ClCompile Include="PickupObject.cpp" />
     <ClCompile Include="PickupShield.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -45,6 +46,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MenuState.h" />
+    <ClInclude Include="PickupHealth.h" />
     <ClInclude Include="PickupObject.h" />
     <ClInclude Include="PickupShield.h" />
     <ClInclude Include="Player.h" />
