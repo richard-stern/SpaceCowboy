@@ -16,6 +16,9 @@
     <Filter Include="BaseTypes">
       <UniqueIdentifier>{24d6b7cf-5c27-4b97-8fcb-9476e2f8e917}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObjects\PowerUps">
+      <UniqueIdentifier>{93b1d418-cca0-4e22-9565-e2793f9e8a65}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameState.cpp">
@@ -71,6 +74,12 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PickupObject.cpp">
+      <Filter>GameObjects\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="PickupShield.cpp">
+      <Filter>GameObjects\PowerUps</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +142,12 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PickupObject.h">
+      <Filter>GameObjects\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="PickupShield.h">
+      <Filter>GameObjects\PowerUps</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

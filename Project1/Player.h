@@ -20,6 +20,10 @@ public:
 	int GetPlayerHealth();
 	int GetPlayerHealthScaled();
 
+	float GetPlayerShield();
+	float GetPlayerShieldMax();
+	void SetPlayerShield(float newShield);
+
 private:
 
 	Texture* m_pPlayerTexture;
@@ -45,7 +49,8 @@ private:
 	//UI
 	int m_Score;
 	float m_Health;
-	float m_Sheild;
+	float m_Shield;
+	float m_ShieldMax;
 
 	//CAMERA
 	Vector2 m_CamOffSet;
