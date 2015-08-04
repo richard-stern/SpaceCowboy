@@ -29,7 +29,7 @@ private:
 
 	int m_pScore;
 	int m_pHealth;
-	int m_pShield;
+	float m_pShield;
 	static GUI * m_pSingleton;
 	Texture *m_pHpImage;
 	Texture *m_pbar;

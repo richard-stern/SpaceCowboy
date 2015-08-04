@@ -17,7 +17,7 @@
 
 Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : GameObject( szTexturePath, v2Pos, eCollision )
 {
-	//Make Bullet Manager
+	//Make Bullet Manager1
 	m_pBulletManager = new BulletManager();
 
 	//Load Player Texture
@@ -188,17 +188,17 @@ void Player::Draw(SpriteBatch* pSpriteBatch)
 
 float Player::GetPlayerHealth()
 {
-	return m_nHealth;
+	return (float)m_nHealth;
 }
 
 float Player::GetPlayerHealthMax()
 {
-	return m_nMaxHealth;
+	return (float)m_nMaxHealth;
 }
 
 float Player::GetPlayerHealthScaled()
 {
-	float HealthFraction = m_nHealth / 100;
+	float HealthFraction = m_nHealth / 100.0f;
 	HealthFraction *= 233;
 
 	return HealthFraction;
