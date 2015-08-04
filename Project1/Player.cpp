@@ -34,7 +34,8 @@ Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : 
 
 	m_Score = 0;
 	m_Health = 100;
-	m_Sheild = 100;
+	m_ShieldMax = 100;
+	m_Shield = m_ShieldMax;
 
 	m_CamPosition = Vector2(0, 0);
 	m_CamVelocity = Vector2(0, 0);
@@ -65,8 +66,8 @@ void Player::Update(float fDeltaTime)
 	if (CollisionManager::GetSingleton()->IsColliding(this, &m_pCollider))
 	{
 		SetVelocity(m_pCollider->GetVelocity());
-		if(m_Sheild >= 0)
-			m_Sheild -= 20 + rand() % 20;
+		if(m_Shield >= 0)
+			m_Shield -= 20 + rand() % 20;
 		else
 			m_Health -= 20 + rand() % 20;
 	}
@@ -166,9 +167,9 @@ void Player::Draw(SpriteBatch* pSpriteBatch)
 	pSpriteBatch->DrawSprite(m_pPlayerTexture, GetPosition().x, GetPosition().y, m_Size.x, m_Size.y, m_Rotation);
 
 
-	if (m_Sheild >= 0)
+	if (m_Shield >= 0)
 	{
-		pSpriteBatch->SetRenderColor(0x0000FF00 + (int)(m_Sheild * 2));
+		pSpriteBatch->SetRenderColor(0x0000FF00 + (int)(m_Shield * 2));
 		pSpriteBatch->DrawSprite(m_pPlayerTexture, GetPosition().x, GetPosition().y, m_Size.x + 10, m_Size.y + 10, m_Rotation);
 		pSpriteBatch->SetRenderColor(0xFFFFFFFF);
 	}
@@ -186,4 +187,19 @@ int Player::GetPlayerHealthScaled()
 	HealthFraction *= 233;
 
 	return (int)HealthFraction;
+}
+
+float Player::GetPlayerShield()
+{
+	return m_Shield;
+}
+
+float Player::GetPlayerShieldMax()
+{
+	return m_ShieldMax;
+}
+
+void Player::SetPlayerShield(float newShield)
+{
+	m_Shield = newShield;
 }

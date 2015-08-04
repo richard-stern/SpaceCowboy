@@ -25,6 +25,11 @@ Level::Level()
 		m_v2EachPos.x = (float)(rand() % windowHeight);
 		starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
 	}
+
+	//------------------------------------------------------------------------------------------
+	//To Do?
+	//Storage[i] = new PickupShield("shieldPickup.png", m_v2EachPos, ECOLLISIONTYPE_AABB);
+	//------------------------------------------------------------------------------------------
 }
 
 Level::~Level()
