@@ -17,7 +17,7 @@
 
 Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : GameObject( szTexturePath, v2Pos, eCollision )
 {
-	//Make Bullet Manager
+	//Make Bullet Manager1
 	m_pBulletManager = new BulletManager();
 
 	//Load Player Texture
@@ -111,7 +111,7 @@ void Player::Update(float fDeltaTime)
 		m_Acceleration.y = -GetVelocity().y / 100;
 	}
 	//SHOOT
-	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_SPACE))
+	if (Input::GetSingleton()->WasKeyPressed(GLFW_KEY_SPACE))
 	{
 		m_pBulletManager->ShootBullet(GetPosition(), GetFacing());
 	}
@@ -168,6 +168,7 @@ void Player::Update(float fDeltaTime)
 	SetVelocity(GetVelocity() + m_Acceleration * fDeltaTime);
 	SetPosition(GetPosition() + GetVelocity() * fDeltaTime);
 	this->m_pBulletManager->Update(fDeltaTime);
+
 }
 
 void Player::Draw(SpriteBatch* pSpriteBatch)
@@ -183,22 +184,22 @@ void Player::Draw(SpriteBatch* pSpriteBatch)
 		pSpriteBatch->DrawSprite(m_pPlayerTexture, GetPosition().x, GetPosition().y, m_Size.x + 10, m_Size.y + 10, m_Rotation);
 		pSpriteBatch->SetRenderColor(0xFFFFFFFF);
 	}
-
+	this->m_pBulletManager->Draw(pSpriteBatch);
 }
 
 float Player::GetPlayerHealth()
 {
-	return m_nHealth;
+	return (float)m_nHealth;
 }
 
 float Player::GetPlayerHealthMax()
 {
-	return m_nMaxHealth;
+	return (float)m_nMaxHealth;
 }
 
 float Player::GetPlayerHealthScaled()
 {
-	float HealthFraction = m_nHealth / 100;
+	float HealthFraction = m_nHealth / 100.0f;
 	HealthFraction *= 233;
 
 	return HealthFraction;
