@@ -32,6 +32,7 @@ GUI::GUI()
 
 GUI::~GUI()
 {
+	delete m_font;
 }
 
 void GUI::Draw(SpriteBatch* pSpriteBatch, float health)
