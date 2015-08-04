@@ -51,6 +51,7 @@ Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : 
 
 Player::~Player()
 {
+	delete m_pBulletManager;
 }
 
 void Player::Update(float fDeltaTime)
