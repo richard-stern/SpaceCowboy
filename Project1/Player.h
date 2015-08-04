@@ -23,6 +23,7 @@ public:
 
 	float GetPlayerShield();
 	float GetPlayerShieldMax();
+	float GetPlayerShieldScaled();
 	void SetPlayerShield(float newShield);
 
 private:
