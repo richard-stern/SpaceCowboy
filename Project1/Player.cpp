@@ -184,37 +184,37 @@ void Player::Draw(SpriteBatch* pSpriteBatch)
 	}
 }
 
-float Player::GetPlayerHealth()
+int Player::GetPlayerHealth()
 {
 	return m_nHealth;
 }
 
-float Player::GetPlayerHealthMax()
+int Player::GetPlayerHealthMax()
 {
 	return m_nMaxHealth;
 }
 
 float Player::GetPlayerHealthScaled()
 {
-	float HealthFraction = m_nHealth / 100;
+	float HealthFraction = (float)m_nHealth / 100;
 	HealthFraction *= 233;
 
 	return HealthFraction;
 }
 
-float Player::GetPlayerShield()
+int Player::GetPlayerShield()
 {
 	return m_Shield;
 }
 
-float Player::GetPlayerShieldMax()
+int Player::GetPlayerShieldMax()
 {
 	return m_ShieldMax;
 }
 
 float Player::GetPlayerShieldScaled()
 {
-	float ShieldFraction =  m_Shield/ 100;
+	float ShieldFraction = (float)m_Shield / 100;
 	ShieldFraction *= 233;
 
 	return ShieldFraction;
@@ -222,5 +222,5 @@ float Player::GetPlayerShieldScaled()
 
 void Player::SetPlayerShield(float newShield)
 {
-	m_Shield = newShield;
+	m_Shield = (int)newShield;
 }
