@@ -42,20 +42,20 @@ void GUI::Draw(SpriteBatch* pSpriteBatch, float health,float shield)
 	Engine::GetSingleton()->GetSpriteBatch()->GetViewRect(&minX, &minY, &maxX, &maxY);
 
 	//draw the health UI
-	pSpriteBatch->DrawSprite(m_pHpImage, minX - 30.0f, minY + 30.0f, 293.0f, 14.0f);
+	pSpriteBatch->DrawSprite(m_pHpImage, minX + 170.0f, minY + 30.0f, 293.0f, 14.0f);
 
 	//Live hp updaterino + logic
 	SetHealth(health);
 	float myVar = (float)m_pHealth;
-	pSpriteBatch->DrawSprite(m_pbar, minX + 112.0f, minY + 31.0f, myVar + 1.0f, 10.0f, 0, 0); //change 4th value to change bar length
+	pSpriteBatch->DrawSprite(m_pbar, minX + 192.0f, minY + 29.0f, myVar + 1.0f, 10.0f, 0, 0); //change 4th value to change bar length
 
 	//draw the shield UI
-	pSpriteBatch->DrawSprite(m_pShieldImage, minX - 30.0f, minY + 60.0f, 293.0f, 14.0f);
+	pSpriteBatch->DrawSprite(m_pShieldImage, minX + 170.0f, minY + 60.0f, 293.0f, 14.0f);
 
 	//draw the Shield bar
 	SetShield(shield);
 	float myVar2 = m_pShield;
-	pSpriteBatch->DrawSprite(m_pSbar, minX - 112.0f, minY - 60.0f, myVar2 + 1.0f, 10.0f, 0, 0);
+	pSpriteBatch->DrawSprite(m_pSbar, minX + 192.0f, minY + 60.0f, myVar2 + 1.0f, 10.0f, 0, 0);
 
 
 	//draw score
