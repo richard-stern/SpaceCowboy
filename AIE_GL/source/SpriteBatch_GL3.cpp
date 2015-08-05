@@ -132,7 +132,17 @@ SpriteBatch_GL3::SpriteBatch_GL3(Application *pApp) : SpriteBatch( pApp )
 	m_fCameraX = 0.0f;
 	m_fCameraY = 0.0f;
 
-	GetOrtho(m_projection, m_fCameraX, m_fCameraX + (float)pApp->GetViewWidth(), m_fCameraY + (float)pApp->GetViewHeight(), m_fCameraY, 0.0f, 100.0f);
+	float viewWidth	= (float)m_pApplication->GetViewWidth();
+	float viewHeight = (float)m_pApplication->GetViewHeight();
+
+	//Setup the projection and view
+	float minX = m_fCameraX - (viewWidth * 0.5f);
+	float minY = m_fCameraY - (viewHeight * 0.5f);
+	float maxX = m_fCameraX + (viewWidth * 0.5f);
+	float maxY = m_fCameraY + (viewHeight * 0.5f);
+	GetOrtho(m_projection, minX, maxX, maxY, minY, -1.0f, 100.0f);
+
+	//GetOrtho(m_projection, m_fCameraX, m_fCameraX + (float)pApp->GetViewWidth(), m_fCameraY + (float)pApp->GetViewHeight(), m_fCameraY, 0.0f, 100.0f);
 }
 
 SpriteBatch_GL3::~SpriteBatch_GL3()
@@ -204,11 +214,15 @@ void SpriteBatch_GL3::Begin()
 	//unsigned int viewWidth	= ( renderTexture != nullptr ) ? renderTexture->GetWidth()	: m_pApplication->GetWindowWidth();
 	//unsigned int viewHeight = ( renderTexture != nullptr ) ? renderTexture->GetHeight()	: m_pApplication->GetWindowHeight();
 
-	unsigned int viewWidth	= m_pApplication->GetViewWidth();
-	unsigned int viewHeight = m_pApplication->GetViewHeight();
+	float viewWidth	= (float)m_pApplication->GetViewWidth();
+	float viewHeight = (float)m_pApplication->GetViewHeight();
 
 	//GetOrtho(m_projection, 0.0f, (float)viewWidth, (float)viewHeight, 0.0f, -1.0f, 100.0f);
-	GetOrtho(m_projection, m_fCameraX, m_fCameraX + (float)viewWidth, m_fCameraY + (float)viewHeight, m_fCameraY, -1.0f, 100.0f);
+	float minX = m_fCameraX - (viewWidth * 0.5f);
+	float minY = m_fCameraY - (viewHeight * 0.5f);
+	float maxX = m_fCameraX + (viewWidth * 0.5f);
+	float maxY = m_fCameraY + (viewHeight * 0.5f);
+	GetOrtho(m_projection, minX, maxX, maxY, minY, -1.0f, 100.0f);
 
 	glUseProgram( m_shader );
 
@@ -231,12 +245,18 @@ void SpriteBatch_GL3::End()
 
 	m_processingRender = false;
 
-	unsigned int viewWidth	= m_pApplication->GetWindowWidth();
-	unsigned int viewHeight = m_pApplication->GetWindowHeight();
+	float viewWidth	= (float)m_pApplication->GetViewWidth();
+	float viewHeight = (float)m_pApplication->GetViewHeight();
 
 	// resetup the projection and view
 	//GetOrtho(m_projection, 0.0f, (float)viewWidth, (float)viewHeight, 0.0f, -1.0f, 100.0f);
-	GetOrtho(m_projection, m_fCameraX, m_fCameraX + (float)viewWidth, m_fCameraY + (float)viewHeight, m_fCameraY, -1.0f, 100.0f);
+	float minX = m_fCameraX - (viewWidth * 0.5f);
+	float minY = m_fCameraY - (viewHeight * 0.5f);
+	float maxX = m_fCameraX + (viewWidth * 0.5f);
+	float maxY = m_fCameraY + (viewHeight * 0.5f);
+	GetOrtho(m_projection, minX, maxX, maxY, minY, -1.0f, 100.0f);
+
+	//GetOrtho(m_projection, m_fCameraX, m_fCameraX + (float)viewWidth, m_fCameraY + (float)viewHeight, m_fCameraY, -1.0f, 100.0f);
 }
 
 void SpriteBatch_GL3::DrawSprite( Texture *texture, float xPos, float yPos, float width, float height, float rotation, float xOrigin, float yOrigin)

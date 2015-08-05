@@ -57,7 +57,7 @@ void GameState::Draw(SpriteBatch* pSpriteBatch)
 
 	m_pPlayer->Draw(pSpriteBatch);
 
-	pSpriteBatch->SetCameraPos(playerPos.x, playerPos.y);
+	//pSpriteBatch->SetCameraPos(playerPos.x, playerPos.y);
 
 	//GUI Draw and parameters
 	

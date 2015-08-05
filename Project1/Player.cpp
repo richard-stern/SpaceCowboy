@@ -152,7 +152,7 @@ void Player::Update(float fDeltaTime)
 	else
 		m_CamOffSet.y += 0.1f;
 	//Update Camera
-	Engine::GetSingleton()->GetSpriteBatch()->SetCameraPos(GetPosition().x - m_WindowWidth / 2 + m_CamOffSet.x, GetPosition().y - m_WindowHeight / 2 + m_CamOffSet.y);
+	Engine::GetSingleton()->GetSpriteBatch()->SetCameraPos(GetPosition().x + m_CamOffSet.x, GetPosition().y + m_CamOffSet.y);
 
 
 	//ADD TO VEL AND POS
