@@ -15,7 +15,8 @@
 #include "CollisionManager.h"
 #include "GUI.h"
 
-Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : GameObject( szTexturePath, v2Pos, eCollision )
+Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision)
+	: GameObject(szTexturePath, v2Pos, eCollision)
 {
 	//Make Bullet Manager1
 	m_pBulletManager = new BulletManager();
@@ -59,7 +60,7 @@ Player::~Player()
 void Player::Update(float fDeltaTime)
 {
 	//Set WINDOW Variables on ENTER
-	if (m_WindowWidth == 0)
+	if (m_WindowWidth == 0 || m_WindowHeight == 0)
 	{
 		m_WindowWidth = Engine::GetSingleton()->GetApplication()->GetWindowWidth();
 		m_WindowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight();
