@@ -11,6 +11,4 @@ public:
 	void Update(StateMachine* pStateMachine, float fDeltaTime);
 	void Draw(SpriteBatch* pSpriteBatch);
 	void Exit();
-
-
 };

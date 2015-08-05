@@ -58,8 +58,8 @@ void GameState::Update(StateMachine* pStateMachine, float fDeltaTime)
 	{
 		//Game
 		if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_SPACE)) {
-			pStateMachine->ChangeState(ESTATE_GAME);
 			paused_State = false;
+			pStateMachine->ChangeState(ESTATE_GAME);
 		}
 		//Menu return
 		if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_F1)) {
@@ -71,8 +71,7 @@ void GameState::Update(StateMachine* pStateMachine, float fDeltaTime)
 
 void GameState::Draw(SpriteBatch* pSpriteBatch)
 {
-	if (!paused_State)
-	{
+	if (!paused_State) {
 		Vector2 playerPos = m_pPlayer->GetPosition();
 
 		m_pLevel->Draw(pSpriteBatch);
@@ -80,7 +79,7 @@ void GameState::Draw(SpriteBatch* pSpriteBatch)
 		m_pPlayer->Draw(pSpriteBatch);
 
 		pSpriteBatch->SetCameraPos(playerPos.x, playerPos.y);
-
+		
 		//GUI Draw and parameters
 
 		//param store hp
@@ -92,8 +91,7 @@ void GameState::Draw(SpriteBatch* pSpriteBatch)
 		//Draws GUI
 		GUI::GetSingleton()->Draw(pSpriteBatch, myVar, myVar2);
 	}
-	else
-	{
+	else {
 		this->PauseDraw(pSpriteBatch);
 	}
 }

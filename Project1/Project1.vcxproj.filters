@@ -84,9 +84,6 @@
     <ClCompile Include="Boss.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="PauseState.cpp">
-      <Filter>StateMachine</Filter>
-    </ClCompile>
     <ClCompile Include="Boss Bullet.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
@@ -166,9 +163,6 @@
     </ClInclude>
     <ClInclude Include="Boss.h">
       <Filter>GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="PauseState.h">
-      <Filter>StateMachine</Filter>
     </ClInclude>
     <ClInclude Include="Boss bullet.h">
       <Filter>GameObjects</Filter>
