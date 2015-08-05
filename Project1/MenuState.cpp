@@ -87,9 +87,9 @@ void MenuState::Enter()
 	m_WindowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight();
 
 	Engine::GetSingleton()->GetSpriteBatch()->GetViewRect(&windowMin.x, &windowMin.y, &windowMax.x, &windowMax.y);
-	m_BtnPos[0] = Vector2(m_WindowWidth / 8.5f, m_WindowHeight / 2.15f);
-	m_SpaceShipPos = Vector2(m_WindowWidth - m_WindowWidth / 5, m_WindowHeight - 200);
-	m_DogePos = Vector2(m_WindowWidth + m_WindowWidth / 5, m_WindowHeight - 200);
+	m_BtnPos[0] = Vector2((float)m_WindowWidth / 8.5f, (float)m_WindowHeight / 2.15f);
+	m_SpaceShipPos = Vector2((float)m_WindowWidth - (float)m_WindowWidth / 5, (float)m_WindowHeight - 200);
+	m_DogePos = Vector2((float)m_WindowWidth + (float)m_WindowWidth / 5, (float)m_WindowHeight - 200);
 }
 
 void MenuState::Update(StateMachine* pStateMachine, float fDeltaTime)
@@ -148,7 +148,7 @@ void MenuState::Draw(SpriteBatch* pSpriteBatch)
 	pSpriteBatch->DrawSprite(m_pBackgroundLayer2, 0,0, (float)m_WindowWidth, (float)m_WindowHeight);
 	//SpaceShip HERE
 	pSpriteBatch->SetRenderColor(0x0000FFFF);
-	pSpriteBatch->DrawSprite(m_pSpaceShipTexture, windowMin.x + m_SpaceShipPos.x, windowMin.y + m_SpaceShipPos.y, 61, 55, -1.60);
+	pSpriteBatch->DrawSprite(m_pSpaceShipTexture, windowMin.x + m_SpaceShipPos.x, windowMin.y + m_SpaceShipPos.y, 61, 55, -1.60f);
 	pSpriteBatch->SetRenderColor(0xFFFFFFFF);
 
 	pSpriteBatch->DrawSprite(m_pBackgroundLayer1, 0, 0, (float)m_WindowWidth, (float)m_WindowHeight);
