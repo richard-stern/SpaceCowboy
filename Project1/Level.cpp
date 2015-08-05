@@ -65,7 +65,8 @@ Level::Level()
 	
 	//------------------------------------------------------------------------------------------
 	//To Do?
-	//Storage[i] = new PickupShield("shieldPickup.png", m_v2EachPos, ECOLLISIONTYPE_AABB);
+	//Storage[i] = new PickupShield("shieldPickup.png", m_v2EachPos, ECOLLISIONTYPE_CIRCLE_MIN);
+	//Storage[i] = new PickupHealth("healthPickup.png", m_v2EachPos, ECOLLISIONTYPE_CIRCLE_MIN); 
 	//------------------------------------------------------------------------------------------
 }
 
