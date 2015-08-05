@@ -110,7 +110,7 @@ void Player::Update(float fDeltaTime)
 		m_Acceleration.y = -GetVelocity().y / 100;
 	}
 	//SHOOT
-	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_SPACE))
+	if (Input::GetSingleton()->WasKeyPressed(GLFW_KEY_SPACE))
 	{
 		m_pBulletManager->ShootBullet(GetPosition(), GetFacing());
 	}
