@@ -22,6 +22,9 @@ public:
 	void Update(float fDeltaTime);
 	void Draw(SpriteBatch* pSpriteBatch);
 
+	//Time for fade
+	float m_fTimeFade;
+
 private:
 	GameObject* rockStorage[20];
 	GameObject* starStorage[120];

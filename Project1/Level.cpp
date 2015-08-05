@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include "Engine.h"
 #include "Application.h"
+#include "SpriteBatch.h"
 
 #define ROCK_COUNT 20
 #define STAR_COUNT 200
@@ -52,7 +53,7 @@ Level::Level()
 		//make every 5th star a different texture 
 		if (i % 5)
 		{
-			starStorage[i] = new Star("rock_small.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			starStorage[i] = new Star("star1.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
 			continue;
 		}
 		else
@@ -94,6 +95,14 @@ void Level::Update(float fDeltaTime)
 	{
 		starStorage[i]->Update(fDeltaTime);
 	}
+
+	m_fTimeFade += fDeltaTime;
+	if (m_fTimeFade > 6.0f)
+	{
+		m_fTimeFade = 0.0f;
+		//m_bIsActive = false;
+		
+	}
 }
 
 void Level::Draw(SpriteBatch* pSpriteBatch)
@@ -101,6 +110,14 @@ void Level::Draw(SpriteBatch* pSpriteBatch)
 	//draw the stars 
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
+		if (i % 5)
+		{
+			pSpriteBatch->SetRenderColor(255, 255, 255, 255 * (unsigned char)(1.0f - m_fTimeFade));
+		}
+		else
+		{
+			pSpriteBatch->SetRenderColor(178, 178, 178, 255 * (unsigned char)(1.0f - m_fTimeFade));
+		}
 		starStorage[i]->Draw(pSpriteBatch);
 	}
 	//draw the rocks
