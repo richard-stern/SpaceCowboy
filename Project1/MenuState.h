@@ -26,6 +26,7 @@ private:
 	Texture* m_pDogeTexture;
 	Texture* m_pBackgroundLayer1;
 	Texture* m_pBackgroundLayer2;
+	Texture* m_pPlayBtnOverlay;
 	Texture* m_pGunSprite[30];
 
 	bool m_Playing;
@@ -33,6 +34,7 @@ private:
 	float m_Timer;
 	float m_TimerMax;
 	bool m_startGame;
+	bool m_btn1Hover;
 
 	Vector2 m_BtnPos[3];
 
