@@ -91,7 +91,7 @@ void Level::Update(float fDeltaTime)
 	{
 			rockStorage[i]->Update(fDeltaTime);
 	}
-	//update the stars 
+	//update the stars
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
 		starStorage[i]->Update(fDeltaTime);
