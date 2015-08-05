@@ -96,11 +96,11 @@ void Player::Update(float fDeltaTime)
 	}
 	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_A))
 	{
-		m_RotationAcc -= 2.0f * fDeltaTime;
+		m_RotationAcc -= 5.0f * fDeltaTime;
 	}
 	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_D))
 	{
-		m_RotationAcc += 2.0f * fDeltaTime;
+		m_RotationAcc += 5.0f * fDeltaTime;
 	}
 	//Mad Brakes
 	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_LEFT_SHIFT))
@@ -120,11 +120,11 @@ void Player::Update(float fDeltaTime)
 	{
 		if (m_RotationVel < 0)
 		{
-			m_RotationAcc += 0.8f * fDeltaTime;
+			m_RotationAcc += 2.0f * fDeltaTime;
 		}
 		else
 		{
-			m_RotationAcc -= 0.8f * fDeltaTime;
+			m_RotationAcc -= 2.0f * fDeltaTime;
 		}
 	}
 
@@ -151,12 +151,12 @@ void Player::Update(float fDeltaTime)
 	else
 		m_CamOffSet.y += 1.0f * fDeltaTime;
 	//Update Camera
-	Engine::GetSingleton()->GetSpriteBatch()->SetCameraPos(GetPosition().x - m_WindowWidth / 2 + m_CamOffSet.x, GetPosition().y - m_WindowHeight / 2 + m_CamOffSet.y);
+	Engine::GetSingleton()->GetSpriteBatch()->SetCameraPos(GetPosition().x + m_CamOffSet.x, GetPosition().y + m_CamOffSet.y);
 
 
 	//ADD TO VEL AND POS
 	m_RotationVel += m_RotationAcc *fDeltaTime;
-	float MaxRotationSpeed = 1.0f * fDeltaTime;
+	float MaxRotationSpeed = 2.0f * fDeltaTime;
 	if (m_RotationVel > MaxRotationSpeed)
 		m_RotationVel = MaxRotationSpeed;
 	else if (m_RotationVel < -MaxRotationSpeed)
@@ -165,17 +165,14 @@ void Player::Update(float fDeltaTime)
 
 	m_Acceleration *= 100;
 	SetVelocity(GetVelocity() + m_Acceleration * fDeltaTime);
-	SetPosition(GetPosition() + GetVelocity() * fDeltaTime);
-	
-	
-	
-	
-	
+	SetPosition(GetPosition() + GetVelocity() * fDeltaTime);	
 	RecalculateAABB();
+	m_pBulletManager->Update(fDeltaTime);
 }
 
 void Player::Draw(SpriteBatch* pSpriteBatch)
 {
+	m_pBulletManager->Draw(pSpriteBatch);
 	//Draw Player
 	GameObject::Draw(pSpriteBatch);
 	//Draw Shield

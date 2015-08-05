@@ -45,5 +45,8 @@ private:
 	Vector2 m_GunPos;
 
 	Vector2 m_DogePos;
+
+	Vector2 windowMin;
+	Vector2 windowMax;
 };
 

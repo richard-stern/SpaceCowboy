@@ -19,12 +19,11 @@ void Engine::CreateEngine(unsigned int width, unsigned int height, bool fullscre
 	Game* pGame = new Game(width, height, false, windowName);
 
 	m_pSingleton->m_pApplication = pGame;
-	pGame->Initialise();
-
 	m_pSingleton->m_pApplication->SetVSync(false);
 
 	m_pSingleton->m_pInput = Input::GetSingleton();
 	m_pSingleton->m_pSpriteBatch = SpriteBatch::Factory::Create(m_pSingleton->m_pApplication, SpriteBatch::GL3);
+	pGame->Initialise();
 }
 
 void Engine::DestroyEngine()
