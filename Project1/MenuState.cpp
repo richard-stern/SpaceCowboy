@@ -87,8 +87,8 @@ void MenuState::Update(StateMachine* pStateMachine, float fDeltaTime)
 		m_WindowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight();
 
 		m_BtnPos[0] = Vector2(m_WindowWidth / 8.5f, m_WindowHeight / 2.1f);
-		m_SpaceShipPos = Vector2(m_WindowWidth - m_WindowWidth / 5, m_WindowHeight - 200);
-		m_DogePos = Vector2(m_WindowWidth + m_WindowWidth / 5, m_WindowHeight - 200);
+		m_SpaceShipPos = Vector2(m_WindowWidth - m_WindowWidth / 5.0f, m_WindowHeight - 200.0f);
+		m_DogePos = Vector2(m_WindowWidth + m_WindowWidth / 5.0f, m_WindowHeight - 200.0f);
 	}
 	//Button Logic
 	int MouseX = Input::GetSingleton()->GetMouseX();
@@ -140,7 +140,7 @@ void MenuState::Draw(SpriteBatch* pSpriteBatch)
 	pSpriteBatch->DrawSprite(m_pBackgroundLayer2, (float)m_WindowWidth / 2, (float)m_WindowHeight / 2, (float)m_WindowWidth, (float)m_WindowHeight);
 	//SpaceShip HERE
 	pSpriteBatch->SetRenderColor(0x0000FFFF);
-	pSpriteBatch->DrawSprite(m_pSpaceShipTexture, m_SpaceShipPos.x, m_SpaceShipPos.y, 61,55, -1.60);
+	pSpriteBatch->DrawSprite(m_pSpaceShipTexture, m_SpaceShipPos.x, m_SpaceShipPos.y, 61,55, -1.60f);
 	pSpriteBatch->SetRenderColor(0xFFFFFFFF);
 
 	pSpriteBatch->DrawSprite(m_pBackgroundLayer1, (float)m_WindowWidth / 2, (float)m_WindowHeight / 2, (float)m_WindowWidth, (float)m_WindowHeight);

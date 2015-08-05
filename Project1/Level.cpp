@@ -11,8 +11,8 @@
 #define STAR_COUNT 120
 Level::Level()
 {
-	unsigned int windowWidth = Engine::GetSingleton()->GetApplication()->GetWindowWidth();
-	unsigned int windowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight();
+	unsigned int windowWidth = Engine::GetSingleton()->GetApplication()->GetWindowWidth() * 4;
+	unsigned int windowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight() * 4;
 	for (int i = 0; i < ROCK_COUNT; i++)
 	{
 		m_v2EachPos.x = (float)(rand() % windowWidth);
@@ -23,7 +23,18 @@ Level::Level()
 	{
 		m_v2EachPos.x = (float)(rand() % windowWidth);
 		m_v2EachPos.y = (float)(rand() % windowHeight);
-		starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+
+		if (i / 5)
+		{
+			starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			continue;
+		}
+		else
+		{
+			starStorage[i] = new Star("rock_small.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			continue;
+		}
+		
 	}
 	
 	//------------------------------------------------------------------------------------------
@@ -34,9 +45,12 @@ Level::Level()
 
 Level::~Level()
 {
-	for (int i = 0; i < ROCK_COUNT; i++)
+	for (int i = 0; i < ROCK_COUNT; i++) //loop and delete asteroids(Rocks)
 	{
 		delete rockStorage[i];
+	}
+	for (int i = 0; i < STAR_COUNT; i++) // loop and delete stars 
+	{
 		delete starStorage[i];
 	}
 }
@@ -45,12 +59,10 @@ void Level::Update(float fDeltaTime)
 {
 	for (int i = 0; i < ROCK_COUNT; i++)
 	{
-		if (rockStorage[i]->GetVisible())
 			rockStorage[i]->Update(fDeltaTime);
 	}
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
-		if (starStorage[i]->GetVisible())
 		starStorage[i]->Update(fDeltaTime);
 	}
 }
@@ -59,16 +71,10 @@ void Level::Draw(SpriteBatch* pSpriteBatch)
 {
 	for (int i = 0; i < ROCK_COUNT; i++)
 	{
-		//if (rockStorage[i]->GetVisible() && rockStorage[i]->GetActive())
-		{
-			rockStorage[i]->Draw(pSpriteBatch);
-		}
+		rockStorage[i]->Draw(pSpriteBatch);
 	}
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
-		//if (starStorage[i]->GetVisible() && starStorage[i]->GetActive())
-		{
-			starStorage[i]->Draw(pSpriteBatch);
-		}
+		starStorage[i]->Draw(pSpriteBatch);
 	}
 }
