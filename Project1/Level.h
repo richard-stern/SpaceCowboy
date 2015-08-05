@@ -3,9 +3,8 @@
 #include "GameObject.h"
 #include <list>
 
-
-#define ROCK_COUNT 20
-#define STAR_COUNT 120
+#define ROCK_COUNT 50
+#define STAR_COUNT 420
 
 using namespace std;
 
@@ -26,8 +25,14 @@ public:
 	void Update(float fDeltaTime);
 	void Draw(SpriteBatch* pSpriteBatch);
 
+	//Time for fade
+	float m_fTimeFade;
+
 private:
 	GameObject* rockStorage[ROCK_COUNT];
 	GameObject* starStorage[STAR_COUNT];
 	Vector2 m_v2EachPos;
+
+	Star *star;
+	Star *star1;
 };

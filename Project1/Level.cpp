@@ -6,12 +6,16 @@
 #include <stdlib.h>
 #include "Engine.h"
 #include "Application.h"
+#include "SpriteBatch.h"
+#include "Texture.h"
 
 Level::Level()
 {
 	//get the screen size and multiply by 2 to increase location used for spawning
 	unsigned int windowWidth = Engine::GetSingleton()->GetApplication()->GetWindowWidth() * 2;
 	unsigned int windowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight() * 2;
+
+	m_fTimeFade = 0.0f;
 
 	//spawn rocks
 	for (int i = 0; i < ROCK_COUNT; i++)
@@ -45,19 +49,20 @@ Level::Level()
 		if (spawnSide == 0)
 			m_v2EachPos *= -1;
 
+		star = new Star("star1.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+		star1 = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);;
 
 		//make every 5th star a different texture 
 		if (i % 5)
 		{
-			starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			starStorage[i] = star;
 			continue;
 		}
 		else
 		{
-			starStorage[i] = new Star("rock_small.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			starStorage[i] = star1;
 			continue;
 		}
-		
 	}
 	
 	//------------------------------------------------------------------------------------------
@@ -86,10 +91,18 @@ void Level::Update(float fDeltaTime)
 	{
 			rockStorage[i]->Update(fDeltaTime);
 	}
-	//update the stars 
+	//update the stars
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
 		starStorage[i]->Update(fDeltaTime);
+	}
+
+	//Colour Fade
+	m_fTimeFade += fDeltaTime;
+	if (m_fTimeFade > 6.0f)
+	{
+		m_fTimeFade = 0.0f;
+		//m_bIsActive = false;
 	}
 }
 
@@ -98,6 +111,19 @@ void Level::Draw(SpriteBatch* pSpriteBatch)
 	//draw the stars 
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
+		//White Star
+		if (i / 3) {
+			pSpriteBatch->SetRenderColor(255, 255, 255, 255 * (unsigned char)(1.0f + m_fTimeFade));
+		}
+		//Grey Star
+		else if (i / 7) {
+			pSpriteBatch->SetRenderColor(178, 178, 178, 255 * (unsigned char)(1.0f - m_fTimeFade));
+		}
+		//Full Star
+		else {
+			pSpriteBatch->SetRenderColor(255, 255, 255, 255);
+		}
+
 		starStorage[i]->Draw(pSpriteBatch);
 	}
 	//draw the rocks
@@ -105,5 +131,4 @@ void Level::Draw(SpriteBatch* pSpriteBatch)
 	{
 		rockStorage[i]->Draw(pSpriteBatch);
 	}
-
 }
