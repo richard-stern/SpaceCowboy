@@ -3,12 +3,11 @@
 #include "CollisionManager.h"
 
 
-PickupObject::PickupObject(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : GameObject(szTexturePath, v2Pos, eCollision)
+PickupObject::PickupObject(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision)
+	: GameObject(szTexturePath, v2Pos, eCollision)
 {
 	m_eCollisionLayer = ECOLLISIONLAYER_ROCK;
-	SetActive(true);
 	CollisionManager::GetSingleton()->AddObject(this);
-	//RecalculateAABB();
 }
 
 

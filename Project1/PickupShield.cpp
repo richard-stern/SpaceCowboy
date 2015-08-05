@@ -6,6 +6,8 @@
 PickupShield::PickupShield(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision, float Strength)
 	: PickupObject(szTexturePath, v2Pos, eCollision)
 {
+	SetActive(true);
+	SetVisible(true);
 	m_strength = Strength;
 }
 
