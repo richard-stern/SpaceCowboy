@@ -7,6 +7,7 @@
 #include "Engine.h"
 #include "Application.h"
 #include "SpriteBatch.h"
+#include "Texture.h"
 
 Level::Level()
 {
@@ -48,19 +49,20 @@ Level::Level()
 		if (spawnSide == 0)
 			m_v2EachPos *= -1;
 
+		star = new Star("star1.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+		star1 = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);;
 
 		//make every 5th star a different texture 
 		if (i % 5)
 		{
-			starStorage[i] = new Star("star1.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			starStorage[i] = star;
 			continue;
 		}
 		else
 		{
-			starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			starStorage[i] = star1;
 			continue;
 		}
-		
 	}
 	
 	//------------------------------------------------------------------------------------------
@@ -110,18 +112,15 @@ void Level::Draw(SpriteBatch* pSpriteBatch)
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
 		//White Star
-		if (i % 3)
-		{
-			pSpriteBatch->SetRenderColor(255, 255, 255, 255 * (unsigned char)(1.0f - m_fTimeFade));
+		if (i / 3) {
+			pSpriteBatch->SetRenderColor(255, 255, 255, 255 * (unsigned char)(1.0f + m_fTimeFade));
 		}
 		//Grey Star
-		else if (i % 7)
-		{
+		else if (i / 7) {
 			pSpriteBatch->SetRenderColor(178, 178, 178, 255 * (unsigned char)(1.0f - m_fTimeFade));
 		}
 		//Full Star
-		else
-		{
+		else {
 			pSpriteBatch->SetRenderColor(255, 255, 255, 255);
 		}
 

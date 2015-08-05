@@ -3,9 +3,8 @@
 #include "GameObject.h"
 #include <list>
 
-
-#define ROCK_COUNT 20
-#define STAR_COUNT 220
+#define ROCK_COUNT 50
+#define STAR_COUNT 420
 
 using namespace std;
 
@@ -33,4 +32,7 @@ private:
 	GameObject* rockStorage[ROCK_COUNT];
 	GameObject* starStorage[STAR_COUNT];
 	Vector2 m_v2EachPos;
+
+	Star *star;
+	Star *star1;
 };
