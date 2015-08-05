@@ -40,9 +40,10 @@ GUI::~GUI()
 void GUI::Draw(SpriteBatch* pSpriteBatch, float health,float shield)
 {
 	Engine::GetSingleton()->GetSpriteBatch()->GetViewRect(&minX, &minY, &maxX, &maxY);
-
+	//Vector2 CamPos;
+	//pSpriteBatch->GetCameraPos(&CamPos.x, &CamPos.y);
 	//draw the health UI
-	pSpriteBatch->DrawSprite(m_pHpImage, minX + 170.0f, minY + 30.0f, 293.0f, 14.0f);
+	pSpriteBatch->DrawSprite(m_pHpImage, minX  + 170.0f, minY + 30.0f, 293.0f, 14.0f);
 
 	//Live hp updaterino + logic
 	SetHealth(health);
