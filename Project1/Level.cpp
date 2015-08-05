@@ -8,14 +8,13 @@
 #include "Application.h"
 #include "SpriteBatch.h"
 
-#define ROCK_COUNT 20
-#define STAR_COUNT 200
-
 Level::Level()
 {
 	//get the screen size and multiply by 2 to increase location used for spawning
 	unsigned int windowWidth = Engine::GetSingleton()->GetApplication()->GetWindowWidth() * 2;
 	unsigned int windowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight() * 2;
+
+	m_fTimeFade = 0.0f;
 
 	//spawn rocks
 	for (int i = 0; i < ROCK_COUNT; i++)
@@ -96,12 +95,12 @@ void Level::Update(float fDeltaTime)
 		starStorage[i]->Update(fDeltaTime);
 	}
 
+	//Colour Fade
 	m_fTimeFade += fDeltaTime;
 	if (m_fTimeFade > 6.0f)
 	{
 		m_fTimeFade = 0.0f;
 		//m_bIsActive = false;
-		
 	}
 }
 
@@ -110,14 +109,22 @@ void Level::Draw(SpriteBatch* pSpriteBatch)
 	//draw the stars 
 	for (int i = 0; i < STAR_COUNT; i++)
 	{
-		if (i % 5)
+		//White Star
+		if (i % 3)
 		{
 			pSpriteBatch->SetRenderColor(255, 255, 255, 255 * (unsigned char)(1.0f - m_fTimeFade));
 		}
-		else
+		//Grey Star
+		else if (i % 7)
 		{
 			pSpriteBatch->SetRenderColor(178, 178, 178, 255 * (unsigned char)(1.0f - m_fTimeFade));
 		}
+		//Full Star
+		else
+		{
+			pSpriteBatch->SetRenderColor(255, 255, 255, 255);
+		}
+
 		starStorage[i]->Draw(pSpriteBatch);
 	}
 	//draw the rocks
@@ -125,5 +132,4 @@ void Level::Draw(SpriteBatch* pSpriteBatch)
 	{
 		rockStorage[i]->Draw(pSpriteBatch);
 	}
-
 }

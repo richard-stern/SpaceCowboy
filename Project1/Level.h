@@ -5,7 +5,7 @@
 
 
 #define ROCK_COUNT 20
-#define STAR_COUNT 120
+#define STAR_COUNT 220
 
 using namespace std;
 
