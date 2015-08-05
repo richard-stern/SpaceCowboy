@@ -1,22 +1,17 @@
 #include "PauseState.h"
 #include "SpriteBatch.h"
 #include "StateMachine.h"
-#include "Font.h"
+
 #include "Engine.h"
 #include "Application.h"
 
 PauseState::PauseState()
 {
-	// Create the font for use with draw string
-	g_font1 = new Font("./Fonts/hobo_22px.fnt");
-	g_fontTimer = new Font("./Fonts/OCR_A_Std_22px.fnt");
 }
 
 
 PauseState::~PauseState()
 {
-	delete g_fontTimer;
-	delete g_font1;
 }
 
 void PauseState::Enter()
@@ -25,22 +20,13 @@ void PauseState::Enter()
 
 void PauseState::Update(StateMachine* pStateMachine, float fDeltaTime)
 {
-	//Game
-	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_SPACE))
-	{
-		pStateMachine->ChangeState(ESTATE_GAME);
-	}
-	//Menu return
-	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_F1))
-	{
-		pStateMachine->ChangeState(ESTATE_MENU);
-	}
+	
 }
 
 void PauseState::Draw(SpriteBatch* pSpriteBatch)
 {
 	pSpriteBatch->SetRenderColor(255, 5, 158, 255);
-	// clear the back buffer
+/*	// clear the back buffer
 	Engine::GetSingleton()->GetApplication()->ClearScreen();
 
 	// Window Width and Height

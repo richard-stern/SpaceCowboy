@@ -93,6 +93,9 @@
     <ClCompile Include="BossBulletManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
+    <ClCompile Include="PickupHealth.cpp">
+      <Filter>GameObjects\PowerUps</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="BossBulletManager.h">
       <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="PickupHealth.h">
+      <Filter>GameObjects\PowerUps</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

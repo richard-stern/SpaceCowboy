@@ -1,9 +1,7 @@
 #pragma once
 #include "BaseState.h"
 
-class Font;
-
-class PauseState : public BaseState
+class PauseState //: public BaseState
 {
 public:
 	PauseState();
@@ -14,7 +12,5 @@ public:
 	void Draw(SpriteBatch* pSpriteBatch);
 	void Exit();
 
-private:
-	Font *g_font1;
-	Font *g_fontTimer;
+
 };

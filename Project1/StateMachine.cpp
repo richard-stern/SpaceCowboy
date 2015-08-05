@@ -14,7 +14,7 @@ StateMachine::StateMachine()
 	//State
 	StatesArray[ESTATE_MENU] = new MenuState();
 	StatesArray[ESTATE_GAME] = new GameState();
-	StatesArray[ESTATE_PAUSED] = new PauseState();
+//	StatesArray[ESTATE_PAUSED] = new PauseState();
 	StatesArray[ESTATE_GAMEOVER] = new GameOverState();
 	
 	StatesArray[m_eCurrentState]->Enter();
