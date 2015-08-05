@@ -17,11 +17,8 @@
 
 Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : GameObject( szTexturePath, v2Pos, eCollision )
 {
-	//Make Bullet Manager1
+	//Make Bullet Manager
 	m_pBulletManager = new BulletManager();
-
-	//Load Player Texture
-	m_pPlayerTexture = TextureManager::GetSingleton()->LoadTexture(szTexturePath);
 
 	//Set Pos and Size
 	SetPosition(v2Pos);
@@ -49,6 +46,8 @@ Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : 
 	m_WindowHeight = 0;
 
 	m_pCollider = nullptr;
+	SetCollisionLayer(ECOLLISIONLAYER_PLAYER);
+	SetActive(true);
 }
 
 Player::~Player()
@@ -97,11 +96,11 @@ void Player::Update(float fDeltaTime)
 	}
 	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_A))
 	{
-		m_RotationAcc -= 0.001f;
+		m_RotationAcc -= 2.0f * fDeltaTime;
 	}
 	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_D))
 	{
-		m_RotationAcc += 0.001f;
+		m_RotationAcc += 2.0f * fDeltaTime;
 	}
 	//Mad Brakes
 	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_LEFT_SHIFT))
@@ -111,7 +110,7 @@ void Player::Update(float fDeltaTime)
 		m_Acceleration.y = -GetVelocity().y / 100;
 	}
 	//SHOOT
-	if (Input::GetSingleton()->WasKeyPressed(GLFW_KEY_SPACE))
+	if (Input::GetSingleton()->IsKeyDown(GLFW_KEY_SPACE))
 	{
 		m_pBulletManager->ShootBullet(GetPosition(), GetFacing());
 	}
@@ -121,11 +120,11 @@ void Player::Update(float fDeltaTime)
 	{
 		if (m_RotationVel < 0)
 		{
-			m_RotationAcc += 0.001f;
+			m_RotationAcc += 0.8f * fDeltaTime;
 		}
 		else
 		{
-			m_RotationAcc -= 0.001f;
+			m_RotationAcc -= 0.8f * fDeltaTime;
 		}
 	}
 
@@ -143,21 +142,21 @@ void Player::Update(float fDeltaTime)
 		m_CamOffSet.y = -offSetCap.y;
 
 	if (m_CamOffSet.x > 0)
-		m_CamOffSet.x -= 0.1f;
+		m_CamOffSet.x -= 1.0f * fDeltaTime;
 	else
-		m_CamOffSet.x += 0.1f;
+		m_CamOffSet.x += 1.0f * fDeltaTime;
 
 	if (m_CamOffSet.y > 0)
-		m_CamOffSet.y -= 0.1f;
+		m_CamOffSet.y -= 1.0f * fDeltaTime;
 	else
-		m_CamOffSet.y += 0.1f;
+		m_CamOffSet.y += 1.0f * fDeltaTime;
 	//Update Camera
 	Engine::GetSingleton()->GetSpriteBatch()->SetCameraPos(GetPosition().x - m_WindowWidth / 2 + m_CamOffSet.x, GetPosition().y - m_WindowHeight / 2 + m_CamOffSet.y);
 
 
 	//ADD TO VEL AND POS
 	m_RotationVel += m_RotationAcc *fDeltaTime;
-	float MaxRotationSpeed = 0.0002f;
+	float MaxRotationSpeed = 1.0f * fDeltaTime;
 	if (m_RotationVel > MaxRotationSpeed)
 		m_RotationVel = MaxRotationSpeed;
 	else if (m_RotationVel < -MaxRotationSpeed)
@@ -167,39 +166,40 @@ void Player::Update(float fDeltaTime)
 	m_Acceleration *= 100;
 	SetVelocity(GetVelocity() + m_Acceleration * fDeltaTime);
 	SetPosition(GetPosition() + GetVelocity() * fDeltaTime);
-	this->m_pBulletManager->Update(fDeltaTime);
-
+	
+	
+	
+	
+	
+	RecalculateAABB();
 }
 
 void Player::Draw(SpriteBatch* pSpriteBatch)
 {
-	//Draw MASSIVE ship
-	pSpriteBatch->DrawSprite(m_pPlayerTexture, 400, 400, m_Size.x * 10, m_Size.y * 10, 0);
 	//Draw Player
-	pSpriteBatch->DrawSprite(m_pPlayerTexture, GetPosition().x, GetPosition().y, m_Size.x, m_Size.y, m_Rotation);
+	GameObject::Draw(pSpriteBatch);
 	//Draw Shield
 	if (m_Shield >= 0)
 	{
 		pSpriteBatch->SetRenderColor(0x0000FF00 + (int)(m_Shield * 2));
-		pSpriteBatch->DrawSprite(m_pPlayerTexture, GetPosition().x, GetPosition().y, m_Size.x + 10, m_Size.y + 10, m_Rotation);
+		GameObject::Draw(pSpriteBatch);
 		pSpriteBatch->SetRenderColor(0xFFFFFFFF);
 	}
-	this->m_pBulletManager->Draw(pSpriteBatch);
 }
 
 float Player::GetPlayerHealth()
 {
-	return (float)m_nHealth;
+	return m_nHealth;
 }
 
 float Player::GetPlayerHealthMax()
 {
-	return (float)m_nMaxHealth;
+	return m_nMaxHealth;
 }
 
 float Player::GetPlayerHealthScaled()
 {
-	float HealthFraction = m_nHealth / 100.0f;
+	float HealthFraction = m_nHealth / 100;
 	HealthFraction *= 233;
 
 	return HealthFraction;

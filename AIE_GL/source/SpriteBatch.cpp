@@ -81,8 +81,8 @@ void SpriteBatch::GetViewRect(float* outMinX, float* outMinY, float* outMaxX, fl
 	float width = (float)m_pApplication->GetViewWidth();
 	float height = (float)m_pApplication->GetViewHeight();
 
-	*outMinX = m_fCameraX;
-	*outMinY = m_fCameraY;
-	*outMaxX = m_fCameraX + width;
-	*outMaxY = m_fCameraY + height;
+	*outMinX = m_fCameraX - (width * 0.5f);
+	*outMinY = m_fCameraY - (height * 0.5f);
+	*outMaxX = m_fCameraX + (width * 0.5f);
+	*outMaxY = m_fCameraY + (height * 0.5f);
 }
