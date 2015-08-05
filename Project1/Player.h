@@ -17,12 +17,12 @@ public:
 	void Update(float fDeltaTime);
 	void Draw(SpriteBatch* pSpriteBatch);
 
-	float GetPlayerHealth();
-	float GetPlayerHealthMax();
+	int GetPlayerHealth();
+	int GetPlayerHealthMax();
 	float GetPlayerHealthScaled();
 
-	float GetPlayerShield();
-	float GetPlayerShieldMax();
+	int GetPlayerShield();
+	int GetPlayerShieldMax();
 	float GetPlayerShieldScaled();
 	void SetPlayerShield(float newShield);
 
@@ -50,8 +50,8 @@ private:
 
 	//UI
 	int m_Score;
-	float m_Shield;
-	float m_ShieldMax;
+	int m_Shield;
+	int m_ShieldMax;
 
 	//CAMERA
 	Vector2 m_CamOffSet;

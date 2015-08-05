@@ -87,9 +87,9 @@ void MenuState::Enter()
 	m_WindowHeight = Engine::GetSingleton()->GetApplication()->GetWindowHeight();
 
 	Engine::GetSingleton()->GetSpriteBatch()->GetViewRect(&windowMin.x, &windowMin.y, &windowMax.x, &windowMax.y);
-	m_BtnPos[0] = Vector2(m_WindowWidth / 8.5f, m_WindowHeight / 2.15f);
-	m_SpaceShipPos = Vector2(m_WindowWidth - m_WindowWidth / 5.0f, m_WindowHeight - 200.0f);
-	m_DogePos = Vector2(m_WindowWidth + m_WindowWidth / 5.0f, m_WindowHeight - 200.0f);
+	m_BtnPos[0] = Vector2((float)m_WindowWidth / 8.5f, (float)m_WindowHeight / 2.15f);
+	m_SpaceShipPos = Vector2((float)m_WindowWidth - (float)m_WindowWidth / 5, (float)m_WindowHeight - 200);
+	m_DogePos = Vector2((float)m_WindowWidth + (float)m_WindowWidth / 5, (float)m_WindowHeight - 200);
 }
 
 void MenuState::Update(StateMachine* pStateMachine, float fDeltaTime)
