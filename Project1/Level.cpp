@@ -7,9 +7,6 @@
 #include "Engine.h"
 #include "Application.h"
 
-#define ROCK_COUNT 20
-#define STAR_COUNT 200
-
 Level::Level()
 {
 	//get the screen size and multiply by 2 to increase location used for spawning
@@ -52,12 +49,12 @@ Level::Level()
 		//make every 5th star a different texture 
 		if (i % 5)
 		{
-			starStorage[i] = new Star("rock_small.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
 			continue;
 		}
 		else
 		{
-			starStorage[i] = new Star("star.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
+			starStorage[i] = new Star("rock_small.png", m_v2EachPos, ECOLLISIONTYPE_NONE);
 			continue;
 		}
 		

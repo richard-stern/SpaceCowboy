@@ -3,6 +3,10 @@
 #include "GameObject.h"
 #include <list>
 
+
+#define ROCK_COUNT 20
+#define STAR_COUNT 120
+
 using namespace std;
 
 class Rock;
@@ -23,7 +27,7 @@ public:
 	void Draw(SpriteBatch* pSpriteBatch);
 
 private:
-	GameObject* rockStorage[20];
-	GameObject* starStorage[120];
+	GameObject* rockStorage[ROCK_COUNT];
+	GameObject* starStorage[STAR_COUNT];
 	Vector2 m_v2EachPos;
 };
