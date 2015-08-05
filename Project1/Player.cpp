@@ -35,6 +35,7 @@ Player::Player(char* szTexturePath, Vector2 v2Pos, ECollisionType eCollision) : 
 	m_nHealth = m_nMaxHealth;
 	m_ShieldMax = 100;
 	m_Shield = m_ShieldMax;
+	m_ShieldTimer = 1.0f;
 
 	//Set Camera
 	m_CamPosition = Vector2(0, 0);
@@ -65,7 +66,7 @@ void Player::Update(float fDeltaTime)
 	}
 	//Update GUI Player health
 	GUI::GetSingleton()->SetHealth((float)GetPlayerHealthScaled());
-	
+
 	//Update Collision
 	m_pCollider = nullptr;
 	if (CollisionManager::GetSingleton()->IsColliding(this, &m_pCollider))
